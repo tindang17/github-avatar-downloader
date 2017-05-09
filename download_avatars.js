@@ -20,7 +20,11 @@ var obj = {
 
   request.get(obj, function(err, response, body) {
     // if (err) throw err;
-    console.log(JSON.parse(body));
+    var contributors = JSON.parse(body)
+    contributors.forEach(function(item) {
+      console.log(item.avatar_url)
+    })
+    // console.log(JSON.parse(body.avatar_url));
   });
 }
 
