@@ -1,9 +1,9 @@
-var GITHUB_USER = "tindang17";
-var GITHUB_TOKEN = "6a0520dbf4c3598b8a1c40620e913c22cd4b9731";
+var GITHUB_USER = 'tindang17';
+var GITHUB_TOKEN = '6a0520dbf4c3598b8a1c40620e913c22cd4b9731';
 
 
 var request = require('request');
-var fs = require('fs')
+var fs = require('fs');
 
 //----------------------------------------------------------------//
 
@@ -17,15 +17,11 @@ function getRepoContributors(repoOwner, repoName, cb) {
     }
   };
 
-
-
   request.get(obj, function(err, response, body) {
-    // if (err) throw err;
-    var contributors = JSON.parse(body)
+    var contributors = JSON.parse(body);
     contributors.forEach(function(item) {
       downloadImageByURL(item.avatar_url, `./avatars/${item.login}.jpg`)
     })
-    // console.log(JSON.parse(body.avatar_url));
   });
 }
 
@@ -46,7 +42,7 @@ function downloadImageByURL(url, filePath) {
 var repoOwner = process.argv[2];
 var repoName = process.argv[3];
 if (!repoOwner || !repoName) {
-  console.log("Please provide the repo detail!");
+  console.log('Please provide the repo detail!');
 } else {
   getRepoContributors(repoOwner, repoName, function(err, result) {});
 }
@@ -56,17 +52,3 @@ if (!repoOwner || !repoName) {
 
 
 
-
-
-
-// };
-
-  // console.log(requestURL)
-//   request.get(requestURL)
-        // ('error', function(err) {
-        //   throw err;
-        //   })
-        // ('body', function(body) {
-        //   body
-        // });
-        // body.json
