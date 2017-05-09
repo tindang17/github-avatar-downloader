@@ -1,6 +1,8 @@
 var GITHUB_USER = "tindang17";
 var GITHUB_TOKEN = "6a0520dbf4c3598b8a1c40620e913c22cd4b9731";
 
+var repoOwner = process.argv[2];
+var repoName = process.argv[3];
 
 var request = require('request');
 var fs = require('fs')
@@ -43,7 +45,7 @@ function downloadImageByURL(url, filePath) {
 
 //---------------------------------------------------------------//
 
-getRepoContributors("jquery", "jquery", function(err, result) {});
+getRepoContributors(repoOwner, repoName, function(err, result) {});
 
 
 
